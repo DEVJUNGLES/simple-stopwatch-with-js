@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", Courier, monospace;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.button {
+  width: 80px;
+  height: 30px;
+  border: 3px solid;
+  border-radius: 12px;
+  background-color: grey;
+  color: rgba(255, 151, 86, 0.939);
+  cursor: pointer;
+}
+.display {
+  font-weight: bolder !important;
+  font-size: 4.7rem;
+  color: hsl(120, 100%, 25%);
+}
+.timeContainer {
+  min-width: 350px;
+  text-align: center;
+  border: 3px solid;
+  border-radius: 25px;
+  background-color: black;
+}
