@@ -60,5 +60,5 @@ resetBtn.addEventListener("click", () => {
   hrs = 0;
   min = 0;
   sec = 0;
-  display = "00:00:00";
+  display.textContent = "00:00:00";
 });
