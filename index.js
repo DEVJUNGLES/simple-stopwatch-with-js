@@ -26,7 +26,7 @@ const updateTime = () => {
   hrs = adjust(hrs);
   min = adjust(min);
 
-  display.textContent = `${hrs} ${min} ${sec}`;
+  display.textContent = `${hrs}:${min}:${sec}`;
 };
 
 // the start button

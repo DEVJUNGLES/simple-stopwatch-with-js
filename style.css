@@ -24,7 +24,7 @@ body {
   color: hsl(120, 100%, 25%);
 }
 .timeContainer {
-  min-width: 350px;
+  min-width: 300px;
   text-align: center;
   border: 3px solid;
   border-radius: 25px;
