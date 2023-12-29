@@ -12,8 +12,7 @@ let hrs = 0;
 let min = 0;
 let sec = 0;
 
-//
-// function to calculate/updateTime-
+// function to calculate/updateTime
 const updateTime = () => {
   timeElapsed = Date.now() - startTime;
   sec = Math.floor((timeElapsed / 1000) % 60);
@@ -30,27 +29,26 @@ const updateTime = () => {
 };
 
 // the start button
-
 startBtn.addEventListener("click", () => {
   if (paused) {
     paused = false;
-    startTime = Date.now() - timeElapsed;
+    startTime = localStorage.getItem("startTime")
+      ? Number(localStorage.getItem("startTime"))
+      : Date.now();
+    localStorage.setItem("startTime", startTime);
     timeInterval = setInterval(updateTime, 1000);
   }
 });
 
 // the pause button
-
 PauseBtn.addEventListener("click", () => {
   if (!paused) {
     paused = true;
-    startTime = Date.now() - timeElapsed;
     clearInterval(timeInterval);
   }
 });
 
 // the reset button
-
 resetBtn.addEventListener("click", () => {
   paused = true;
   clearInterval(timeInterval);
@@ -61,4 +59,12 @@ resetBtn.addEventListener("click", () => {
   min = 0;
   sec = 0;
   display.textContent = "00:00:00";
+  localStorage.removeItem("startTime");
 });
+
+// Call this function when the page loads
+window.onload = function () {
+  if (localStorage.getItem("startTime")) {
+    startBtn.click();
+  }
+};
