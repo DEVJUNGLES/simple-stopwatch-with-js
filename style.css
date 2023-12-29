@@ -20,10 +20,11 @@ body {
 }
 .display {
   font-weight: bolder !important;
-  font-size: 4.7rem;
+  font-size: 4.3rem;
   color: hsl(120, 100%, 25%);
 }
 .timeContainer {
+  padding: 0 10px;
   min-width: 300px;
   text-align: center;
   border: 3px solid;
