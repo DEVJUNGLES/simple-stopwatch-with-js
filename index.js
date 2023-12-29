@@ -3,7 +3,7 @@ const startBtn = document.querySelector("#startBtn");
 const PauseBtn = document.querySelector("#PauseBtn");
 const resetBtn = document.querySelector("#resetBtn");
 
-let startTime = 0;
+let startTime;
 let timeElapsed = 0;
 let currentTime = 0;
 let paused = true;
@@ -14,7 +14,11 @@ let sec = 0;
 
 // function to calculate/updateTime
 const updateTime = () => {
-  timeElapsed = Date.now() - startTime;
+  
+  // timeElapsed = Date.now() - startTime;
+  currentTime = Date.now();
+  timeElapsed += currentTime - startTime;
+  startTime = currentTime;
   sec = Math.floor((timeElapsed / 1000) % 60);
   min = Math.floor((timeElapsed / (1000 * 60)) % 60);
   hrs = Math.floor((timeElapsed / (1000 * 60 * 60)) % 60);
@@ -26,16 +30,15 @@ const updateTime = () => {
   min = adjust(min);
 
   display.textContent = `${hrs}:${min}:${sec}`;
+  
 };
 
 // the start button
 startBtn.addEventListener("click", () => {
   if (paused) {
     paused = false;
-    startTime = localStorage.getItem("startTime")
-      ? Number(localStorage.getItem("startTime"))
-      : Date.now();
-    localStorage.setItem("startTime", startTime);
+    startTime = Date.now();
+
     timeInterval = setInterval(updateTime, 1000);
   }
 });
